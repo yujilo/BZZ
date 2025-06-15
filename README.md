@@ -1,1 +1,237 @@
-# BZZ
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>我們的愛的小天地</title>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'ZCOOL KuaiLe', cursive;
+      background-color: #ffffff;
+      scroll-behavior: smooth;
+      cursor: url('https://cdn-icons-png.flaticon.com/32/833/833472.png'), auto;
+    }
+    nav { background-color: #cce7ff; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-title { font-size: 20px; color: #005f99; font-weight: bold; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { text-decoration: none; color: #005f99; }
+    .hamburger { display: none; flex-direction: column; cursor: pointer; }
+    .hamburger div { width: 25px; height: 3px; background-color: #005f99; margin: 4px 0; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; background-color: #cce7ff; position: absolute; top: 50px; right: 20px; border-radius: 10px; padding: 10px; }
+      .nav-links.active { display: flex; }
+      .hamburger { display: flex; }
+    }
+    .hero { position: relative; width: 100%; height: 300px; overflow: hidden; }
+    .hero img { width: 100%; height: 100%; object-fit: cover; object-position: center; /* 加這一行，讓畫面顯示圖片上半部 */display: block; }
+    .hero-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; background-color: rgba(0,0,0,0.4); padding: 20px 30px; border-radius: 12px; font-size: 28px; }
+    section { padding: 60px 20px; max-width: 900px; margin: auto; }
+    section h2 { text-align: center; color: #005f99; margin-bottom: 30px; }
+    .swiper { width: 100%; padding-bottom: 40px; }
+    .swiper-slide { text-align: center; font-size: 18px; display: flex; flex-direction: column; align-items: center; }
+    .swiper-slide img { max-width: 90%; height: auto; max-height: 300px; object-fit: cover; border: 4px solid #fff7cc; border-radius: 12px; box-shadow: 2px 2px 6px rgba(0,0,0,0.1); }
+    .swiper-slide p { margin-top: 10px; color: #666; }
+    .postcard { background-color: #fff7cc; border: 2px solid #f0d264; border-radius: 15px; padding: 30px; max-width: 600px; margin: auto; box-shadow: 5px 5px 15px rgba(0,0,0,0.2); position: relative; }
+    .postcard::before { content: "✉️"; font-size: 40px; position: absolute; top: -20px; left: -20px; }
+    #back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: #ffd966; color: #333; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 24px; cursor: pointer; display: none; box-shadow: 2px 2px 8px rgba(0,0,0,0.2); }
+    #days-counter { text-align: center; font-size: 20px; margin-top: -30px; margin-bottom: 30px; color: #ff9900; }
+    footer {text-align: center;padding: 20px;background-color: #e6f2ff;color: #666;font-size: 14px;}
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-container">
+    <div class="nav-title">我們的紀念網站</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div><div></div><div></div>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#photos">照片</a>
+      <a href="#story">故事</a>
+      <a href="#message">對你說的話</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <img src="images/we.jpg" alt="封面圖">
+  <div class="hero-text">我們的愛的小天地</div>
+</div>
+
+<section id="photos">
+  <h2>我們的回憶照片</h2>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- 依時間排序，請依序加入多個 slide -->
+      <div class="swiper-slide">
+        <img src="images/0313.jpg" alt="回憶1">
+        <p>成功一起吃上叉燒飯🥳 </p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0314.jpg" alt="回憶2">
+        <p>ㄒㄧˋ夏威夷炒飯 🏖️ </p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0330-1.jpg" alt="回憶3">
+        <p>台中肉員 ❤️</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0330-3.jpg" alt="回憶3">
+        <p>道禾</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0403.jpg" alt="回憶3">
+        <p>堅果地瓜沙拉球 🤩</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0406.jpg" alt="回憶3">
+        <p>新挖掘到的早餐-校園早點</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0414.jpg" alt="回憶3">
+        <p>一中之普普雞蛋糕 😂</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0416-2.jpg" alt="回憶3">
+        <p>陪我到處走走散心 ~ 🥰🥰</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0429.jpg" alt="回憶3">
+        <p>差點以為你忘了我生日 愛你💕 ~</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0505-1.jpg" alt="回憶3">
+        <p>噗噗G蛋燒 💛</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0513.jpg" alt="回憶3">
+        <p>素🍔🥐yummy yummy </p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0516-2.jpg" alt="回憶3">
+        <p>ㄚ 和阿歐完被偷拍啦 ~</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/0516-3.jpg" alt="回憶3">
+        <p>阿歐 </p>
+      </div>
+            <div class="swiper-slide">
+        <img src="images/0530-1.jpg" alt="回憶3">
+        <p>就算沒病 我也喜歡你💕 ~</p>
+      </div>
+            <div class="swiper-slide">
+        <img src="images/0530-2.jpg" alt="回憶3">
+        <p>天使雞排 ~</p>
+      </div>
+            <div class="swiper-slide">
+        <img src="images/0609.jpg" alt="回憶3">
+        <p>終於吃上 💜🦋 啦</p>
+      </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</section>
+
+<section id="story">
+  <h2>我們的故事</h2>
+  <p style="text-align:center">
+    我們的故事，始於一場超神奇的緣分─
+    一堂課、一趟巡邏、三次對眼。
+    就在那幾次眼神交會裡，命運的齒輪好像偷偷開始轉動！<br><br>
+
+   因為你幫我找人，我們開始越來越常聊天、講話、見面，
+   也慢慢發現彼此相處起來怎麼這麼舒服、這麼喜歡。
+   然後在3月10號，一陣拉扯加小小掙扎後，我們就這樣在一起啦💕 <br><br>
+
+   接下來，我們的日子就像被打開的寶箱一樣─
+   我們一起吃了超多好吃的，你還帶我認識了好多地方，
+   尤其是台中！還願、約會、耍廢睡覺(🍄‍🟫🍄‍🟫)…通通都來～
+   還認識了你一堆可愛的朋友，感覺生活變得更熱鬧更好玩了！<br><br>
+
+   當然，也不是只有開心的時候。
+   你陪我度過了阿公突然離開、我壓力爆炸準備期中考的日子，
+   還有我把自己身體玩壞（是我不乖Q_Q），跌倒差點暈過去，
+   那時真的把你嚇壞了吧…但也還好有你在。<br><br>
+
+   如果當時沒有你在，我真的不知道該怎麼辦。
+   謝謝你一直在我身邊，也讓我變得更勇敢了。<br><br>
+
+   <strong>我們的故事，還在繼續！！</strong><br>
+  </p>
+</section>
+
+<section id="message">
+  <h2>想對你說的話</h2>
+  <div id="days-counter"></div>
+  <div class="postcard">
+    大睿睿：<br><br>
+    嘿～葛格，今天是我們在一起的
+    <span style="color: #fa87ad; font-weight: bold;"> 第 100 天 </span>啦！！
+    真的真的好開心，我們一起走到了第一個小小的里程碑～<br><br>
+
+   謝謝你一直以來都這麼溫柔，謝謝你喜歡我那些幼稚的小毛病（雖然我自己也知道我很幼稚🥺），
+   即使有時候你不一定能陪我做每件事，但你總是會記得我的感受、包容我的小脾氣，還有我那堆莫名其妙的情緒起伏<br><br>
+
+   謝謝你每次在我卡關、委屈或煩躁的時候，都會主動來安撫我，
+   每當我不太會表達，或是需要一點時間整理自己心情時，
+   你總是給我空間、再慢慢走過來問我「怎麼了」，讓我願意把心打開給你看。<br><br>
+
+   還有還有～我們的日常真的好幸福🥰
+   一起吃美食、一起耍廢、一起認真，有你在的每一天都變得很不一樣，
+   好像就算只是躺著發呆，我也會覺得：這就是我想要的幸福！！<br><br>
+
+   雖然有時候我會調皮惹你生氣（或者太鬧），但你都還是願意耐心地把我寵回來，
+   那種「我知道我在你心裡很特別」的感覺，我真的超～喜歡的❤️<br><br>
+
+   未來我們還要一起走好多個100天，然後一起變得更厲害、更成熟，
+   一起見證彼此的成長、一起做更多想做的事！<br><br>
+
+   最重要的是─我會一直一直都愛你💞💞💞
+  （而且是會一直升級的那種唷！）<br><br>
+
+   最後偷偷說一句：
+   我真的真的覺得，能遇見你，是我最幸運的事之一。<br><br>
+   <div style="text-align: right; margin-right: 10px;">——愛你的羅小芊</div>
+  </div>
+</section>
+
+<footer>
+    Made with 💛 for you | 設計 by 羅小芊
+</footer>
+
+<button id="back-to-top" onclick="scrollToTop()">🦁</button>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("active");
+  }
+  window.onscroll = () => {
+    document.getElementById('back-to-top').style.display = (window.scrollY > 300) ? 'block' : 'none';
+  };
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // 計算在一起的天數（請自行設定開始日期）
+  const startDate = new Date("2025-03-10");
+  const diffDays = Math.floor((new Date() - startDate) / (1000*60*60*24)) + 2;
+  document.getElementById("days-counter").innerText = `我們在一起第 ${diffDays} 天`;
+
+  const swiper = new Swiper('.mySwiper', {
+    loop: true,
+    spaceBetween: 30,
+    centeredSlides: true,
+    autoplay: { delay: 3500, disableOnInteraction: false },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  });
+</script>
+</body>
+</html>
